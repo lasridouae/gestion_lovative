@@ -1,0 +1,121 @@
+<app-auth-navbar></app-auth-navbar>
+<section class="header relative pt-16 items-center flex h-screen"
+         style="background: url('assets/img/airbnbs/Interior Design 1.jpg'); background-size: cover"
+>
+  <div class="container mx-auto -mt-32 flex flex-wrap">
+    <div class="w-full md:w-12/12 lg:w-12/12 xl:w-12/12 px-12 mn:px-0">
+      <div class="pt-32 sm:pt-0 text-center px-12 mt-16 mx:px-0">
+        <p class="font-bold text-white text-center pt-6" style="font-size: 20px">
+          {{"Services.Design.Home.FirstTitle" | translate}}
+        </p>
+        <h2 class="font-semibold text-5xl text-white">
+          {{"Services.Design.Home.SecondTitle" | translate}}
+        </h2>
+        <p class="mt-4 text-lg text-2xl leading-relaxed text-white">
+          {{"Services.Design.Home.Text" | translate}}
+        </p>
+        <div class="mt-12">
+          <a
+            routerLink="/contact"
+            class="get-started text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-orange uppercase text-sm shadow hover:shadow-lg ease-linear transition-all duration-150"
+          >
+            {{"Services.Design.Home.Button" | translate}}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container px-4 mx-auto mt-48 mb-24">
+  <div class="flex flex-wrap mmm:flex-direction">
+    <div class="w-full px-4 flex-1">
+      <img src="assets/img/airbnbs/Interior%20Design%202.jpg" class="text-sm block  text-blueGray-700 rounded"/>
+    </div>
+    <div class="w-full px-4 flex-1">
+      <div class="flex flex-wrap">
+        <div class="w-full">
+          <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row">
+            <li class="-mb-px my-2 mx-2 last:mr-0 flex-auto text-center">
+              <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal cursor-pointer" (click)="toggleTabs(1)" [ngClass]="{'text-orange bg-white': openTab !== 1, 'text-white bg-orange': openTab === 1}">
+                <i class="fas fa-comment-dollar text-base mr-1"></i> {{"Services.Design.Services.First.Title" | translate}}
+              </a>
+            </li>
+            <li class="-mb-px my-2 mx-2 last:mr-0 flex-auto text-center">
+              <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal cursor-pointer" (click)="toggleTabs(2)" [ngClass]="{'text-orange bg-white': openTab !== 2, 'text-white bg-orange': openTab === 2}">
+                <i class="fas fa-hands-helping text-base mr-1"></i> {{"Services.Design.Services.Second.Title" | translate}}
+              </a>
+            </li>
+            <li class="-mb-px my-2 mx-2 last:mr-0 flex-auto text-center">
+              <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal cursor-pointer" (click)="toggleTabs(3)" [ngClass]="{'text-orange bg-white': openTab !== 3, 'text-white bg-orange': openTab === 3}">
+                <i class="fas fa-briefcase text-base mr-1"></i> {{"Services.Design.Services.Third.Title" | translate}}
+              </a>
+            </li>
+          </ul>
+          <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
+            <div class="px-4 py-5 flex-auto">
+              <div class="tab-content tab-space">
+                <div [ngClass]="{'hidden': openTab !== 1, 'block': openTab === 1}">
+                  <p>
+                    {{"Services.Design.Services.First.Text" | translate}}
+                  </p>
+                </div>
+                <div [ngClass]="{'hidden': openTab !== 2, 'block': openTab === 2}">
+                  <p>
+                    {{"Services.Design.Services.Second.Text" | translate}}
+                  </p>
+                </div>
+                <div [ngClass]="{'hidden': openTab !== 3, 'block': openTab === 3}">
+                  <p>
+                    {{"Services.Design.Services.Third.Text" | translate}}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container px-4 mx-auto mb-24 mt-48">
+  <div class="flex flex-wrap mml:flex-direction">
+    <div class="w-1/2 px-4 md:w-4/12 mx-auto mx:px-0">
+      <span class="text-sm text-center block my-4 p-3 mx:px-0 text-blueGray-700 rounded ">
+        <i class="fas fa-signal text-center mb-8 text-orange" style="font-size: 30px"></i>
+        <h1 style="font-weight: bold; font-size: 80px" >65%</h1>
+        <h2 class="font-bold uppercase  mt-8 mb-2 black-color" style="font-size: 20px">
+          {{"Services.Design.Statistics.First.Title" | translate}}</h2>
+        <h3 class="font-normal" style="font-size: 17px">
+          {{"Services.Design.Statistics.First.Text" | translate}}
+        </h3>
+      </span>
+    </div>
+    <div class="w-1/2 px-4 md:w-4/12 mx-auto mx:px-0">
+      <span class="text-sm text-center block my-4 p-3 mx:px-0 text-blueGray-700 rounded ">
+        <i class="fas fa-signal text-center mb-8 text-orange" style="font-size: 30px"></i>
+        <h1 style="font-weight: bold; font-size: 80px">12+</h1>
+        <h2 class="font-bold uppercase  mt-8 mb-2 black-color" style="font-size: 20px">
+          {{"Services.Design.Statistics.Second.Title" | translate}}</h2>
+        <h3 class="font-normal" style="font-size: 17px">
+          {{"Services.Design.Statistics.Second.Text" | translate}}
+        </h3>
+      </span>
+    </div>
+    <div class="w-1/2 px-4 md:w-4/12 mx-auto mx:px-0">
+      <span class="mx:px-0 text-sm text-center block my-4 p-3 text-blueGray-700 rounded ">
+        <i class="fas fa-signal text-center mb-8 text-orange" style="font-size: 30px"></i>
+        <h1 style="font-weight: bold; font-size: 80px">#1</h1>
+        <h2 class="font-bold uppercase  mt-8 mb-2 black-color" style="font-size: 20px">
+          {{"Services.Design.Statistics.Third.Title" | translate}}
+        </h2>
+        <h3 class="font-normal" style="font-size: 17px">
+          {{"Services.Design.Statistics.Third.Text" | translate}}
+        </h3>
+      </span>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

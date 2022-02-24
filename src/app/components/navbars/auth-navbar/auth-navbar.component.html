@@ -1,0 +1,124 @@
+<nav
+  class="top-0  fixed z-50 w-full bg-black-new lex flex-wrap items-center justify-between px-2  navbar-expand-lg"
+>
+  <div
+    class="container px-4 mx-auto flex flex-wrap items-center justify-between"
+  >
+    <div
+      class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start"
+    >
+      <a
+        [routerLink]="['/']"
+        class="text-white text-sm font-bold leading-relaxed inline-block whitespace-nowrap uppercase"
+      >
+        <img src="assets/img/Alquelira_Logo_White.png" style="width: 150px" class="my-4"/>
+      </a>
+      <button
+        class="cursor-pointer text-xl leading-none px-3 py-1 bg-transparent block lg:hidden outline-none focus:outline-none"
+        type="button"
+        (click)="setNavbarOpen()"
+      >
+        <i class="text-white fas fa-bars"></i>
+      </button>
+    </div>
+    <div
+      class="lg:flex flex-grow items-center bg-black-new lg:bg-opacity-0 lg:shadow-none"
+      [ngClass]="{ hidden: !navbarOpen, 'block rounded shadow-lg': navbarOpen }"
+      id="example-navbar-warning"
+    >
+
+      <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
+        <li class="flex items-center mr-4">
+          <a class="hover:text-blueGray-500 text-orange  px-3 py-2 flex items-center text-xs uppercase font-bold"
+             [routerLink]="['/home']"
+             class="text-xs uppercase py-3 font-bold block"
+             routerLinkActive
+             #home="routerLinkActive"
+             [ngClass]="
+              home.isActive
+                ? 'text-orange'
+                : 'text-white hover:orange'
+            "
+          >{{"Navbar.Home" | translate}}</a>
+        </li>
+        <li class="flex items-center">
+          <app-pages-dropdown class="block"></app-pages-dropdown>
+        </li>
+        <li class="flex items-center">
+          <a class="hover:text-blueGray-500 text-white px-3 py-2 flex items-center text-xs uppercase font-bold"
+             [routerLink]="['/whyUs']"
+             class="text-xs uppercase py-3 pr-4 font-bold block"
+             routerLinkActive
+             #whyUs="routerLinkActive"
+             [ngClass]="
+              whyUs.isActive
+                ? 'text-orange '
+                : 'text-white hover:orange'
+            "
+          >{{"Navbar.WhyUs" | translate}}</a>
+        </li>
+        <li class="flex items-center mr-4">
+          <a class="hover:text-blueGray-500 text-white px-3 py-2 flex items-center text-xs uppercase font-bold"
+             [routerLink]="['/aboutUs']"
+             class="text-xs uppercase py-3 font-bold block"
+             routerLinkActive
+             #aboutUs="routerLinkActive"
+             [ngClass]="
+              aboutUs.isActive
+                ? 'text-orange'
+                : 'text-white hover:orange'
+            "
+          >{{"Navbar.About" | translate}}
+          </a>
+        </li>
+        <li class="flex items-center mr-4">
+          <a class="hover:text-blueGray-500 text-white pr-3 flex items-center text-xs uppercase font-bold"
+          >
+            <i class="fas fa-phone-alt text-white w-5 cursor-pointer hover:orange" title="click to copier phone number" (click)="copyText()"></i><p class="mb-4">&nbsp;</p>
+          </a>
+        </li>
+        <li class="flex items-center mr-4" *ngIf="currentUser && role == 'CLIENT'">
+          <a class="text-white flex items-center text-xs uppercase font-bold hover:orange py-2"
+             [routerLink]="['/profile']">Dashboard
+          </a>
+        </li>
+        <li class="flex items-center mr-4" *ngIf="currentUser && role == 'ADMIN'">
+          <a class="text-white flex items-center text-xs uppercase font-bold hover:orange py-2"
+             [routerLink]="['/admin']">Dashboard
+          </a>
+        </li>
+        <li class="flex items-center mr-4" *ngIf="currentUser && role == 'SUPERADMIN'">
+          <a class="text-white flex items-center text-xs uppercase font-bold hover:orange py-2"
+             [routerLink]="['/superAdmin']">Dashboard
+          </a>
+        </li>
+
+        <li class="flex items-center">
+          <button
+            class="bg-orange text-white text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 mb-3 ease-linear transition-all duration-150"
+            type="button"
+            [routerLink]="['/contact']"
+          >
+            <a routerLink="/contact">Contact</a>
+          </button>
+        </li>
+
+        <li class="flex items-center">
+          <button *ngIf="!currentUser"
+            [routerLink]="['/auth/login']"
+            class="bg-white text-blueGray-700 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 mb-3 ease-linear transition-all duration-150"
+          >
+            {{"Navbar.Login" | translate}}
+          </button>
+          <button *ngIf="currentUser"
+                  (click)="logout()"
+            class="bg-white text-blueGray-700 active:bg-blueGray-50 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 mb-3 ease-linear transition-all duration-150"
+          >
+            {{"Navbar.LogOut" | translate}}
+          </button>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>

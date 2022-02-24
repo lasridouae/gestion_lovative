@@ -1,0 +1,97 @@
+<div
+  class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0"
+>
+  <div class="rounded-t bg-white mb-0 px-6 py-6">
+    <div class="text-center flex justify-between">
+      <h6 class="text-blueGray-700 text-xl font-bold">
+        {{"Profile.Houses.Title" | translate}}
+      </h6>
+    </div>
+  </div>
+  <div class="flex-auto px-4 lg:px-10 py-10 pt-0 rounded-b">
+    <div
+      class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg mt-16"
+    >
+      <div class="flex flex-wrap">
+        <div class="w-full flex-1">
+          <div
+            id="map-canvas"
+            class="relative w-full rounded h-600-px"
+          ></div>
+        </div>
+        <div class="w-full pl-4 flex-1">
+          <ejs-schedule height="600px" [readonly]="readonly" [eventSettings]="eventObject" [selectedDate]="setDate" [currentView]="setView"></ejs-schedule>
+        </div>
+      </div>
+    </div>
+    <div
+      [ngStyle]="{'visibility': reservations.length === 0 ? 'hidden' : 'visible' }"
+      class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded"
+    >
+      <div class="rounded-t mb-0 px-4 py-3 border-0 bg-white">
+        <div class="flex flex-wrap items-center">
+          <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+            <h3
+              class="font-semibold text-lg"
+            >
+              {{"Profile.Houses.Table.Title" | translate}}
+            </h3>
+          </div>
+        </div>
+      </div>
+      <div class="block w-full overflow-x-auto">
+        <!-- Projects table -->
+        <table class="items-center w-full bg-transparent border-collapse">
+          <thead>
+          <tr>
+            <th
+              class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap  text-left"
+            >
+              {{"Profile.Houses.Table.Start" | translate}}
+            </th>
+            <th
+              class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap  text-left"
+            >
+              {{"Profile.Houses.Table.To" | translate}}
+            </th>
+            <th
+              class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap text-left"
+            >
+              {{"Profile.Houses.Table.Rent" | translate}}
+            </th>
+            <th
+              class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap  text-left"
+            >
+              {{"Profile.Houses.Table.Net" | translate}}
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let reservation of reservations">
+            <td
+              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center"
+            >
+              {{reservation.StartTime | date:'MM/dd/yyyy'}}
+            </td>
+            <td
+              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+            >
+              {{reservation.EndTime | date:'M/d/yyyy'}}
+            </td>
+            <td
+              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+            >
+              {{reservation.totalRent+" DH"}}
+            </td>
+            <td
+              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+            >
+              {{reservation.netProfit+ " DH"}}
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

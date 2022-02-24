@@ -1,0 +1,133 @@
+<div class="flex flex-wrap mt-4">
+  <div class="w-full mb-12 px-4" style="margin-bottom: 150px">
+    <div
+      class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded bg-white"
+    >
+      <div class="rounded-t mb-0 px-4 py-3 border-0">
+        <div class="flex flex-wrap items-center">
+          <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+            <h3
+              class="font-semibold text-lg text-blueGray-700"
+            >
+              {{"Admin.Resers.Title" | translate}}
+            </h3>
+          </div>
+        </div>
+        <div class="flex flex-wrap">
+          <div class="w-full px-4 flex-1">
+            <input class="placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm border border-blueGray-300 outline-none focus:outline-none focus:shadow-outline w-6/12 mx-4 my-4" style="margin-left: 45%" placeholder="Search..." type="text"
+                   [(ngModel)]="clientValue"
+                   id="search"/>
+          </div>
+        </div>
+      </div>
+      <div class="block w-full overflow-x-auto">
+        <!-- Projects table -->
+        <table class="items-center w-full bg-transparent border-collapse">
+          <thead>
+          <tr>
+            <th
+              class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100"
+            >
+              {{"Admin.Users.Table.First" | translate}}
+            </th>
+            <th
+              class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100"
+            >
+              {{"Admin.Users.Table.Last" | translate}}
+            </th>
+            <th
+              class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100"
+            >
+              {{"Admin.Users.Table.Email" | translate}}
+            </th>
+            <th
+              class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100"
+            >
+              {{"Admin.Users.Table.Address" | translate}}
+            </th>
+            <th
+              class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100"
+            >
+              {{"Contact.Card.Tele" | translate}}
+            </th>
+            <th
+              class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100"
+            >
+              {{"Admin.Users.Table.Houses" | translate}}
+            </th>
+            <th
+              class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100"
+            >
+              cin
+            </th>
+            <th
+              class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100"
+            >
+              {{"Admin.Users.Add.Type" | translate}}
+            </th>
+            <th
+              class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100"
+            >
+              {{"Admin.Users.Edit.Form.Account" | translate}}
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let client of clients | paginate: {itemsPerPage: 5, currentPage: p} | clientFilter: clientValue">
+            <td
+              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+            >
+              {{client.firstName}}
+            </td>
+            <td
+              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+            >
+              {{client?.lastName}}
+            </td>
+            <td
+              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+            >
+              {{client?.email}}
+            </td>
+            <td
+              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+            >
+              {{client?.address}}
+            </td>
+            <td
+              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+            >
+              {{client?.phoneNumber}}
+            </td>
+            <td
+              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+            >
+              {{client?.housesNumber}}
+            </td>
+            <td
+              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 uppercase"
+            ><p *ngIf="client?.cin == null">no cin</p>
+              {{client?.cin}}
+            </td>
+            <td
+              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 uppercase"
+            ><p *ngIf="client?.paymentMethode == null">no type</p>
+              {{client?.paymentMethode}}
+            </td>
+            <td
+              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 uppercase"
+            ><p *ngIf="client?.compteNumber == null">no {{"Admin.Users.Edit.Form.Account" | translate}}</p>
+              {{client?.compteNumber}}
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <pagination-controls
+          (pageChange)="p = $event">
+        </pagination-controls>
+      </div>
+    </div>
+
+  </div>
+</div>
