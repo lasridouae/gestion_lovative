@@ -1,17 +1,14 @@
 {
-  "name": "Alquirela",
-  "version": "1.1.0",
-  "license": "MIT",
+  "name": "gestion-locative-front-end",
+  "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "max": "node --max_old_space_size=16284 ./node_modules/@angular/cli/bin/ng serve",
     "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e",
-    "build:tailwind": "tailwind build src/assets/styles/index.css -o src/assets/styles/tailwind.css"
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
   },
+  "private": true,
   "dependencies": {
     "@agm/core": "^1.1.0",
     "@angular/animations": "11.2.5",
